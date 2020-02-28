@@ -9,7 +9,7 @@ namespace binarySearchTree
     class BinaryTree<T>
     {
         //Member variables
-        Node<T> root;
+        Node root;
         //Constructor
         //Member Methods
     }
