@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace binarySearchTree
 {
-    class Node
+    class Node<T>
     {
+        //Member Variables
+        public T value;
+        public Node<T> leftLink;
+        public Node<T> rightLink;
+        //Constructor
+        public Node(T value)
+        {
+            this.value = value;
+        }
+        //Member Methods
     }
 }
