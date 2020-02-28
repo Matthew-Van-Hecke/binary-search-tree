@@ -1,4 +1,5 @@
 ﻿using System;
+using binarySearchTree;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace binarySearchTree_Test
@@ -10,8 +11,8 @@ namespace binarySearchTree_Test
         public void Add_OneIntNode_RootInNotNull()
         {
             //Arrange
-            BinaryTree<Node<int>> tree = new BinaryTree<Node<int>>();
-            Node<int> node = new Node<int>(12);
+            BinaryTree<Node> tree = new BinaryTree<Node>();
+            Node node = new Node(12);
             //Act
             tree.Add(node);
             //Assert
@@ -21,8 +22,8 @@ namespace binarySearchTree_Test
         public void Add_OneIntNode_RootHasCorrectValue()
         {
             //Arrange
-            BinaryTree<Node<int>> tree = new BinaryTree<Node<int>>();
-            Node<int> node = new Node<int>(12);
+            BinaryTree<Node> tree = new BinaryTree<Node>();
+            Node node = new Node(12);
             int expected = 12;
             //Act
             tree.Add(node);
