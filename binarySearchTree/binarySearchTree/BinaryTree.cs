@@ -10,10 +10,15 @@ namespace binarySearchTree
     {
         //Member variables
         public Node root;
+        private int count;
+        public int Count
+        {
+            get { return count; }
+        }
         //Constructor
         public BinaryTree()
         {
-
+            count = 0;
         }
         //Member Methods
         public void Add(Node node)
@@ -23,6 +28,7 @@ namespace binarySearchTree
             if (root == null)
             {
                 root = temporary;
+                count++;
                 return;
             }
             //If there are Nodes in the list already, compare temporary node with each, and put a link to it once its right position is found.
@@ -34,11 +40,12 @@ namespace binarySearchTree
                     if (currentNode.leftLink == null)
                     {
                         currentNode.leftLink = temporary;
+                        count++;
+                        return;
                     }
                     else
                     {
                         currentNode = currentNode.leftLink;
-                        return;
                     }
                 }
                 else
@@ -46,11 +53,12 @@ namespace binarySearchTree
                     if (currentNode.rightLink == null)
                     {
                         currentNode.rightLink = temporary;
+                        count++;
+                        return;
                     }
                     else
                     {
                         currentNode = currentNode.rightLink;
-                        return;
                     }
                 }
             }
