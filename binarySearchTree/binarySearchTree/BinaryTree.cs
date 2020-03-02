@@ -21,48 +21,62 @@ namespace binarySearchTree
             count = 0;
         }
         //Member Methods
-        public void Add(Node node)
+        public void Add(int value)
         {
             Node currentNode = root;
-            Node temporary = new Node(node.value);
+            Node temporary = new Node(value);
             if (root == null)
             {
                 root = temporary;
                 count++;
                 return;
             }
-            //If there are Nodes in the list already, compare temporary node with each, and put a link to it once its right position is found.
             while (currentNode != null)
             {
 
                 if (temporary.CompareTo(currentNode) <= 0)
                 {
-                    if (currentNode.leftLink == null)
+                    if(CurrentNodeIsLessThanNodeToAdd(ref currentNode, ref temporary))
                     {
-                        currentNode.leftLink = temporary;
-                        count++;
                         return;
-                    }
-                    else
-                    {
-                        currentNode = currentNode.leftLink;
                     }
                 }
                 else
                 {
-                    if (currentNode.rightLink == null)
+                    if(CurrentNodeIsGreaterThanNodeToAdd(ref currentNode, ref temporary))
                     {
-                        currentNode.rightLink = temporary;
-                        count++;
                         return;
-                    }
-                    else
-                    {
-                        currentNode = currentNode.rightLink;
                     }
                 }
             }
-            
+        }
+        public bool CurrentNodeIsLessThanNodeToAdd(ref Node currentNode, ref Node temporary)
+        {
+            if (currentNode.leftLink == null)
+            {
+                currentNode.leftLink = temporary;
+                count++;
+                return true;
+            }
+            else
+            {
+                currentNode = currentNode.leftLink;
+            }
+            return false;
+        }
+        public bool CurrentNodeIsGreaterThanNodeToAdd(ref Node currentNode, ref Node temporary)
+        {
+            if (currentNode.rightLink == null)
+            {
+                currentNode.rightLink = temporary;
+                count++;
+                return true;
+            }
+            else
+            {
+                currentNode = currentNode.rightLink;
+            }
+            return false;
         }
     }
 }

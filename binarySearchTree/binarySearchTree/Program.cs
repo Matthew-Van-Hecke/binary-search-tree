@@ -12,11 +12,11 @@ namespace binarySearchTree
         {
             //Arrange
             BinaryTree<Node> tree = new BinaryTree<Node>();
-            Node node1 = new Node(12);
-            Node node2 = new Node(45);
-            Node node3 = new Node(13);
-            Node node4 = new Node(1);
-            Node node5 = new Node(4);
+            int node1 = 12;
+            int node2 = 45;
+            int node3 = 13;
+            int node4 = 1;
+            int node5 = 4;
             int expected = 13;
             //Act
             tree.Add(node1);
