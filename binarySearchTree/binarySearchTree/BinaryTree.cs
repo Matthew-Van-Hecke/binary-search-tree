@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace binarySearchTree
 {
-    public class BinaryTree<T>
+    public class BinaryTree<T> where T : IComparable
     {
         //Member variables
-        public Node root;
+        public Node<T> root;
         private int count;
         public int Count
         {
@@ -21,10 +21,10 @@ namespace binarySearchTree
             count = 0;
         }
         //Member Methods
-        public void Add(int value)
+        public void Add(T value)
         {
-            Node currentNode = root;
-            Node temporary = new Node(value);
+            Node<T> currentNode = root;
+            Node<T> temporary = new Node<T>(value);
             if (root == null)
             {
                 root = temporary;
@@ -50,7 +50,7 @@ namespace binarySearchTree
                 }
             }
         }
-        public bool CurrentNodeIsLessThanNodeToAdd(ref Node currentNode, ref Node temporary)
+        public bool CurrentNodeIsLessThanNodeToAdd(ref Node<T> currentNode, ref Node<T> temporary)
         {
             if (currentNode.leftLink == null)
             {
@@ -64,7 +64,7 @@ namespace binarySearchTree
             }
             return false;
         }
-        public bool CurrentNodeIsGreaterThanNodeToAdd(ref Node currentNode, ref Node temporary)
+        public bool CurrentNodeIsGreaterThanNodeToAdd(ref Node<T> currentNode, ref Node<T> temporary)
         {
             if (currentNode.rightLink == null)
             {
@@ -78,9 +78,9 @@ namespace binarySearchTree
             }
             return false;
         }
-        public string Find(int value)
+        public string Find(T value)
         {
-            Node currentNode = root;
+            Node<T> currentNode = root;
             string path = "Value found at: root";
             string notFound = "Value not found.";
             while (currentNode != null)
