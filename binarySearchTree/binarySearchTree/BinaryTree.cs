@@ -78,5 +78,29 @@ namespace binarySearchTree
             }
             return false;
         }
+        public string Find(int value)
+        {
+            Node currentNode = root;
+            string path = "Value found at: root";
+            string notFound = "Value not found.";
+            while (currentNode != null)
+            {
+                if (currentNode.value.CompareTo(value) == 0)
+                {
+                    return path;
+                }
+                else if (currentNode.value.CompareTo(value) < 0)
+                {
+                    path += "-right";
+                    currentNode = currentNode.rightLink;
+                }
+                else
+                {
+                    path += "-left";
+                    currentNode = currentNode.leftLink;
+                }
+            }
+            return notFound;
+        }
     }
 }

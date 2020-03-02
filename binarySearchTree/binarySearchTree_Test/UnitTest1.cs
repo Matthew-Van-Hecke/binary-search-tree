@@ -90,25 +90,77 @@ namespace binarySearchTree_Test
             //Assert
             Assert.AreEqual(expected, tree.root.leftLink.rightLink.value);
         }
-        //[TestMethod]
-        //public void Search_SearchingForValueWhichIsInTree_ReturnValue()
-        //{
-        //    //Arrange
-        //    BinaryTree<Node> tree = new BinaryTree<Node>();
-        //    int node1 = 12;
-        //    int node2 = 45;
-        //    int node3 = 13;
-        //    int node4 = 1;
-        //    int node5 = 4;
-        //    int expected = 4;
-        //    //Act
-        //    tree.Add(node1);
-        //    tree.Add(node2);
-        //    tree.Add(node3);
-        //    tree.Add(node4);
-        //    tree.Add(node5);
-        //    //Assert
-        //    Assert.AreEqual(expected, tree.root.leftLink.rightLink.value);
-        //}
+        [TestMethod]
+        public void Find_SearchingForValueWhichIsInTree_ReturnFilePathOfValue()
+        {
+            //Arrange
+            BinaryTree<Node> tree = new BinaryTree<Node>();
+            int node1 = 12;
+            int node2 = 45;
+            int node3 = 13;
+            int node4 = 1;
+            int node5 = 4;
+            string expected = "Value found at: root-left-right";
+            string actual;
+            //Act
+            tree.Add(node1);
+            tree.Add(node2);
+            tree.Add(node3);
+            tree.Add(node4);
+            tree.Add(node5);
+            actual = tree.Find(4);
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Find_SearchingForValueWhichIsNotInTree_ReturnStringSayingThatValueIsNotInTree()
+        {
+            //Arrange
+            BinaryTree<Node> tree = new BinaryTree<Node>();
+            int node1 = 12;
+            int node2 = 45;
+            int node3 = 13;
+            int node4 = 1;
+            int node5 = 4;
+            string expected = "Value not found.";
+            string actual;
+            //Act
+            tree.Add(node1);
+            tree.Add(node2);
+            tree.Add(node3);
+            tree.Add(node4);
+            tree.Add(node5);
+            actual = tree.Find(6);
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Find_SearchingForValueWhichIsInTree_ReturnPathToValueInTree()
+        {
+            //Arrange
+            BinaryTree<Node> tree = new BinaryTree<Node>();
+            int node1 = 12;
+            int node2 = 45;
+            int node3 = 13;
+            int node4 = 1;
+            int node5 = 4;
+            int node6 = 78;
+            int node7 = 98;
+            int node8 = 100;
+            string expected = "Value found at: root-right-right-right-right";
+            string actual;
+            //Act
+            tree.Add(node1);
+            tree.Add(node2);
+            tree.Add(node3);
+            tree.Add(node4);
+            tree.Add(node5);
+            tree.Add(node6);
+            tree.Add(node7);
+            tree.Add(node8);
+            actual = tree.Find(100);
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
